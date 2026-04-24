@@ -27,7 +27,7 @@ img{
   display:block;
 }
 
-/* botones invisibles SOLO portada */
+/* BOTONES PORTADA */
 .boton{
   position:absolute;
   width:45%;
@@ -35,18 +35,16 @@ img{
   z-index:2;
 }
 
-/* posiciones */
 #e{ top:38%; left:5%; }
 #h{ top:38%; right:5%; }
 #p{ top:60%; left:5%; }
 #b{ top:60%; right:5%; }
 
-/* ocultar botones cuando no es portada */
 .oculto{
   display:none;
 }
 
-/* botón volver */
+/* BOTÓN VOLVER */
 .volver{
   position:absolute;
   top:10px;
@@ -54,17 +52,25 @@ img{
   background:orange;
   padding:8px 12px;
   border-radius:10px;
-  font-size:14px;
-  z-index:10; /* 🔥 clave */
-}
-
-/* idioma */
-.idioma{
-  position:absolute;
-  top:10px;
-  right:10px;
   z-index:10;
 }
+
+/* ZONAS BEBIDAS */
+.zona{
+  position:absolute;
+  top:18%;
+  width:18%;
+  height:8%;
+  z-index:5;
+  display:none;
+}
+
+#z1{ left:2%; }
+#z2{ left:21%; }
+#z3{ left:40%; }
+#z4{ left:59%; }
+#z5{ left:78%; }
+
 </style>
 </head>
 
@@ -72,27 +78,34 @@ img{
 
 <div class="container">
 
-  <!-- idioma -->
-  <div class="idioma">
-    <button onclick="cambiarIdioma('es')">ES</button>
-    <button onclick="cambiarIdioma('en')">EN</button>
-  </div>
-
-  <!-- volver -->
+  <!-- BOTÓN VOLVER -->
   <div class="volver" onclick="inicio()">⬅</div>
 
-  <!-- imágenes -->
+  <!-- IMÁGENES -->
   <img id="inicio" class="activo" src="portada.png">
+
   <img id="entradas" src="entradas.png">
   <img id="hamburguesas" src="hamburguesas.png">
   <img id="platos" src="platosfuertes.png">
-  <img id="bebidas" src="cocteles.png">
 
-  <!-- botones portada -->
+  <img id="cerveza" src="cerveza.png">
+  <img id="cocteles" src="cocteles.png">
+  <img id="importados" src="importados.png">
+  <img id="bebidassoft" src="bebidassoft.png">
+  <img id="happyhours" src="happyhours.png">
+
+  <!-- BOTONES PORTADA -->
   <div id="e" class="boton" onclick="abrir('entradas')"></div>
   <div id="h" class="boton" onclick="abrir('hamburguesas')"></div>
   <div id="p" class="boton" onclick="abrir('platos')"></div>
-  <div id="b" class="boton" onclick="abrir('bebidas')"></div>
+  <div id="b" class="boton" onclick="abrirBebidas()"></div>
+
+  <!-- SUBMENÚ BEBIDAS SOBRE IMAGEN -->
+  <div id="z1" class="zona" onclick="mostrarBebida('cerveza')"></div>
+  <div id="z2" class="zona" onclick="mostrarBebida('cocteles')"></div>
+  <div id="z3" class="zona" onclick="mostrarBebida('importados')"></div>
+  <div id="z4" class="zona" onclick="mostrarBebida('bebidassoft')"></div>
+  <div id="z5" class="zona" onclick="mostrarBebida('happyhours')"></div>
 
 </div>
 
@@ -101,21 +114,32 @@ img{
 function abrir(seccion){
   ocultarTodo();
   document.getElementById(seccion).classList.add("activo");
+  ocultarBotones();
+  ocultarZonas();
+}
 
-  // ocultar botones de portada
-  document.querySelectorAll('.boton').forEach(b=>{
-    b.classList.add("oculto");
-  });
+function abrirBebidas(){
+  ocultarTodo();
+  document.getElementById("cocteles").classList.add("activo");
+  ocultarBotones();
+  mostrarZonas();
+}
+
+function mostrarBebida(tipo){
+  ocultarTodo();
+  document.getElementById(tipo).classList.add("activo");
+  mostrarZonas();
 }
 
 function inicio(){
   ocultarTodo();
   document.getElementById("inicio").classList.add("activo");
 
-  // mostrar botones otra vez
   document.querySelectorAll('.boton').forEach(b=>{
     b.classList.remove("oculto");
   });
+
+  ocultarZonas();
 }
 
 function ocultarTodo(){
@@ -124,22 +148,22 @@ function ocultarTodo(){
   });
 }
 
-/* idioma */
-function cambiarIdioma(idioma){
+function ocultarBotones(){
+  document.querySelectorAll('.boton').forEach(b=>{
+    b.classList.add("oculto");
+  });
+}
 
-  if(idioma=="es"){
-    document.getElementById("entradas").src="entradas.png";
-    document.getElementById("hamburguesas").src="hamburguesas.png";
-    document.getElementById("platos").src="platosfuertes.png";
-    document.getElementById("bebidas").src="cocteles.png";
-  }
+function mostrarZonas(){
+  document.querySelectorAll('.zona').forEach(z=>{
+    z.style.display="block";
+  });
+}
 
-  if(idioma=="en"){
-    document.getElementById("entradas").src="starters.png";
-    document.getElementById("hamburguesas").src="burgers.png";
-    document.getElementById("platos").src="mainplates.png";
-    document.getElementById("bebidas").src="drinks.png";
-  }
+function ocultarZonas(){
+  document.querySelectorAll('.zona').forEach(z=>{
+    z.style.display="none";
+  });
 }
 
 </script>
