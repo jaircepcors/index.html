@@ -9,11 +9,11 @@ body{
   margin:0;
   background:black;
   text-align:center;
+  font-family:Arial;
 }
 
 .seccion{
   display:none;
-  position:relative;
 }
 
 .activa{
@@ -25,74 +25,81 @@ img{
   max-width:500px;
 }
 
-/* botones invisibles */
-.boton{
-  position:absolute;
-  left:0;
-  width:100%;
-  height:70px;
+/* BOTONES REALES */
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:20px;
 }
 
-/* botón volver */
+.btn{
+  background:#ff6a00;
+  color:white;
+  padding:15px;
+  border-radius:10px;
+  font-size:18px;
+  border:none;
+}
+
 .volver{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:80px;
+  margin-top:10px;
+  background:#333;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PORTADA -->
+<!-- INICIO -->
 <div id="inicio" class="seccion activa">
   <img src="portada.png">
 
-  <div class="boton" style="top:280px;" onclick="ir('entradas')"></div>
-  <div class="boton" style="top:360px;" onclick="ir('hamburguesas')"></div>
-  <div class="boton" style="top:440px;" onclick="ir('platos')"></div>
-  <div class="boton" style="top:520px;" onclick="ir('bebidas')"></div>
+  <div class="menu">
+    <button class="btn" onclick="ir('entradas')">Entradas</button>
+    <button class="btn" onclick="ir('hamburguesas')">Burgers</button>
+    <button class="btn" onclick="ir('platos')">Platos Fuertes</button>
+    <button class="btn" onclick="ir('bebidas')">Bebidas</button>
+  </div>
 </div>
 
 <!-- ENTRADAS -->
 <div id="entradas" class="seccion">
   <img src="entradas.png">
-  <div class="volver" onclick="ir('inicio')"></div>
+  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
 </div>
 
-<!-- HAMBURGUESAS -->
+<!-- BURGERS -->
 <div id="hamburguesas" class="seccion">
   <img src="hamburguesas.png">
-  <div class="volver" onclick="ir('inicio')"></div>
+  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
 </div>
 
 <!-- PLATOS -->
 <div id="platos" class="seccion">
   <img src="platosfuertes.png">
-  <div class="volver" onclick="ir('inicio')"></div>
+  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
 </div>
 
 <!-- BEBIDAS -->
 <div id="bebidas" class="seccion">
   <img src="cócteles.png">
 
-  <!-- volver -->
-  <div class="volver" onclick="ir('inicio')"></div>
+  <div class="menu">
+    <button class="btn" onclick="mostrar('cerveza.png')">Cervezas</button>
+    <button class="btn" onclick="mostrar('cócteles.png')">Cócteles</button>
+    <button class="btn" onclick="mostrar('importados.png')">Importados</button>
+    <button class="btn" onclick="mostrar('bebidassoft.png')">Bebidas Soft</button>
+    <button class="btn" onclick="mostrar('happyhours.png')">Happy Hours</button>
+  </div>
 
-  <!-- subcategorías -->
-  <div class="boton" style="top:260px;" onclick="mostrarBebida('cerveza')"></div>
-  <div class="boton" style="top:320px;" onclick="mostrarBebida('cocteles')"></div>
-  <div class="boton" style="top:380px;" onclick="mostrarBebida('importados')"></div>
-  <div class="boton" style="top:440px;" onclick="mostrarBebida('bebidassoft')"></div>
-  <div class="boton" style="top:500px;" onclick="mostrarBebida('happyhours')"></div>
+  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
 </div>
 
-<!-- SUB BEBIDAS -->
-<div id="subbebida" class="seccion">
-  <img id="imgBebida">
-  <div class="volver" onclick="ir('bebidas')"></div>
+<!-- SUB BEBIDA -->
+<div id="sub" class="seccion">
+  <img id="imgSub">
+  <button class="btn volver" onclick="ir('bebidas')">⬅ Volver</button>
 </div>
 
 <script>
@@ -101,17 +108,11 @@ function ir(seccion){
   document.getElementById(seccion).classList.add('activa');
 }
 
-function mostrarBebida(tipo){
-  let img = document.getElementById('imgBebida');
-
-  if(tipo=="cerveza") img.src="cerveza.png";
-  if(tipo=="cocteles") img.src="cócteles.png";
-  if(tipo=="importados") img.src="importados.png";
-  if(tipo=="bebidassoft") img.src="bebidassoft.png";
-  if(tipo=="happyhours") img.src="happyhours.png";
-
-  ir('subbebida');
+function mostrar(img){
+  document.getElementById('imgSub').src = img;
+  ir('sub');
 }
 </script>
 
-</body
+</body>
+</html>
