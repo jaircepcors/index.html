@@ -8,109 +8,54 @@
 body{
   margin:0;
   background:black;
-  text-align:center;
-  font-family:Arial;
+  display:flex;
+  justify-content:center;
 }
 
-.seccion{
-  display:none;
-}
-
-.activa{
-  display:block;
+.container{
+  position:relative;
+  width:100%;
+  max-width:400px; /* tamaño tipo celular */
 }
 
 img{
   width:100%;
-  max-width:500px;
+  display:block;
 }
 
-/* BOTONES REALES */
-.menu{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  padding:20px;
+/* BOTONES ENCIMA DE LA IMAGEN */
+.boton{
+  position:absolute;
+  width:45%;
+  height:18%;
 }
 
-.btn{
-  background:#ff6a00;
-  color:white;
-  padding:15px;
-  border-radius:10px;
-  font-size:18px;
-  border:none;
-}
+/* posiciones exactas */
+#btn1{ top:38%; left:5%; }
+#btn2{ top:38%; right:5%; }
+#btn3{ top:60%; left:5%; }
+#btn4{ top:60%; right:5%; }
 
-.volver{
-  margin-top:10px;
-  background:#333;
-}
 </style>
 </head>
 
 <body>
 
-<!-- INICIO -->
-<div id="inicio" class="seccion activa">
+<div class="container">
   <img src="portada.png">
 
-  <div class="menu">
-    <button class="btn" onclick="ir('entradas')">Entradas</button>
-    <button class="btn" onclick="ir('hamburguesas')">Burgers</button>
-    <button class="btn" onclick="ir('platos')">Platos Fuertes</button>
-    <button class="btn" onclick="ir('bebidas')">Bebidas</button>
-  </div>
-</div>
-
-<!-- ENTRADAS -->
-<div id="entradas" class="seccion">
-  <img src="entradas.png">
-  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
-</div>
-
-<!-- BURGERS -->
-<div id="hamburguesas" class="seccion">
-  <img src="hamburguesas.png">
-  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
-</div>
-
-<!-- PLATOS -->
-<div id="platos" class="seccion">
-  <img src="platosfuertes.png">
-  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
-</div>
-
-<!-- BEBIDAS -->
-<div id="bebidas" class="seccion">
-  <img src="cócteles.png">
-
-  <div class="menu">
-    <button class="btn" onclick="mostrar('cerveza.png')">Cervezas</button>
-    <button class="btn" onclick="mostrar('cócteles.png')">Cócteles</button>
-    <button class="btn" onclick="mostrar('importados.png')">Importados</button>
-    <button class="btn" onclick="mostrar('bebidassoft.png')">Bebidas Soft</button>
-    <button class="btn" onclick="mostrar('happyhours.png')">Happy Hours</button>
-  </div>
-
-  <button class="btn volver" onclick="ir('inicio')">⬅ Volver</button>
-</div>
-
-<!-- SUB BEBIDA -->
-<div id="sub" class="seccion">
-  <img id="imgSub">
-  <button class="btn volver" onclick="ir('bebidas')">⬅ Volver</button>
+  <div id="btn1" class="boton" onclick="ir('entradas')"></div>
+  <div id="btn2" class="boton" onclick="ir('hamburguesas')"></div>
+  <div id="btn3" class="boton" onclick="ir('platos')"></div>
+  <div id="btn4" class="boton" onclick="ir('bebidas')"></div>
 </div>
 
 <script>
 function ir(seccion){
-  document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('activa'));
-  document.getElementById(seccion).classList.add('activa');
-}
-
-function mostrar(img){
-  document.getElementById('imgSub').src = img;
-  ir('sub');
+  if(seccion=="entradas") window.location="entradas.png";
+  if(seccion=="hamburguesas") window.location="hamburguesas.png";
+  if(seccion=="platos") window.location="platosfuertes.png";
+  if(seccion=="bebidas") window.location="cócteles.png";
 }
 </script>
 
