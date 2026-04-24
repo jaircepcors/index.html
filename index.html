@@ -3,113 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Birra - Menú</title>
+<title>Menú La Birra</title>
 
 <style>
-body {
-  margin: 0;
-  background: black;
-  font-family: Arial, sans-serif;
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:black;
+    color:white;
+    text-align:center;
 }
 
-.pantalla {
-  display: none;
+.pantalla{
+    display:none;
 }
 
-.activa {
-  display: block;
+.activa{
+    display:block;
 }
 
-img {
-  width: 100%;
-  height: auto;
+img{
+    width:100%;
+    max-width:500px;
 }
 
-.menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: black;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
+.botones{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:20px;
 }
 
-.menu button {
-  background: #ff6600;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-</style>
-
-</head>
-<body>
-
-<!-- PORTADA -->
-<div id="inicio" class="pantalla activa">
-  <img src="portada.png">
-</div>
-
-<!-- ENTRADAS -->
-<div id="entradas" class="pantalla">
-  <img src="entradas.png">
-</div>
-
-<!-- HAMBURGUESAS -->
-<div id="burgers" class="pantalla">
-  <img src="hamburguesas.png">
-</div>
-
-<!-- PLATOS -->
-<div id="platos" class="pantalla">
-  <img src="platos fuertes.png">
-</div>
-
-<!-- CERVEZAS -->
-<div id="cervezas" class="pantalla">
-  <img src="cerveza.png">
-</div>
-
-<!-- CÓCTELES -->
-<div id="cocteles" class="pantalla">
-  <img src="cócteles.png">
-</div>
-
-<!-- IMPORTADOS -->
-<div id="importados" class="pantalla">
-  <img src="importados.png">
-</div>
-
-<!-- SOFT DRINKS -->
-<div id="soft" class="pantalla">
-  <img src="bebidas soft.png">
-</div>
-
-<!-- HAPPY HOURS -->
-<div id="happy" class="pantalla">
-  <img src="happy hours.png">
-</div>
-
-<!-- MENÚ FIJO -->
-<div class="menu">
-  <button onclick="mostrar('inicio')">Inicio</button>
-  <button onclick="mostrar('entradas')">Entradas</button>
-  <button onclick="mostrar('burgers')">Burgers</button>
-  <button onclick="mostrar('platos')">Platos</button>
-  <button onclick="mostrar('cervezas')">Cervezas</button>
-</div>
-
-<script>
-function mostrar(id) {
-  let pantallas = document.querySelectorAll('.pantalla');
-  pantallas.forEach(p => p.classList.remove('activa'));
-
-  document.getElementById(id).classList.add('activa');
-}
-</script>
-
-</body>
-</html>
+button{
+    padding:15px;
+    font
