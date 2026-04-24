@@ -27,18 +27,24 @@ img{
   display:block;
 }
 
-/* botones invisibles */
+/* botones invisibles SOLO portada */
 .boton{
   position:absolute;
   width:45%;
   height:18%;
+  z-index:2;
 }
 
-/* portada */
+/* posiciones */
 #e{ top:38%; left:5%; }
 #h{ top:38%; right:5%; }
 #p{ top:60%; left:5%; }
 #b{ top:60%; right:5%; }
+
+/* ocultar botones cuando no es portada */
+.oculto{
+  display:none;
+}
 
 /* botón volver */
 .volver{
@@ -49,6 +55,7 @@ img{
   padding:8px 12px;
   border-radius:10px;
   font-size:14px;
+  z-index:10; /* 🔥 clave */
 }
 
 /* idioma */
@@ -56,10 +63,7 @@ img{
   position:absolute;
   top:10px;
   right:10px;
-}
-
-.idioma button{
-  margin-left:5px;
+  z-index:10;
 }
 </style>
 </head>
@@ -68,5 +72,77 @@ img{
 
 <div class="container">
 
-  <!-- BOTONES -->
-  <
+  <!-- idioma -->
+  <div class="idioma">
+    <button onclick="cambiarIdioma('es')">ES</button>
+    <button onclick="cambiarIdioma('en')">EN</button>
+  </div>
+
+  <!-- volver -->
+  <div class="volver" onclick="inicio()">⬅</div>
+
+  <!-- imágenes -->
+  <img id="inicio" class="activo" src="portada.png">
+  <img id="entradas" src="entradas.png">
+  <img id="hamburguesas" src="hamburguesas.png">
+  <img id="platos" src="platosfuertes.png">
+  <img id="bebidas" src="cocteles.png">
+
+  <!-- botones portada -->
+  <div id="e" class="boton" onclick="abrir('entradas')"></div>
+  <div id="h" class="boton" onclick="abrir('hamburguesas')"></div>
+  <div id="p" class="boton" onclick="abrir('platos')"></div>
+  <div id="b" class="boton" onclick="abrir('bebidas')"></div>
+
+</div>
+
+<script>
+
+function abrir(seccion){
+  ocultarTodo();
+  document.getElementById(seccion).classList.add("activo");
+
+  // ocultar botones de portada
+  document.querySelectorAll('.boton').forEach(b=>{
+    b.classList.add("oculto");
+  });
+}
+
+function inicio(){
+  ocultarTodo();
+  document.getElementById("inicio").classList.add("activo");
+
+  // mostrar botones otra vez
+  document.querySelectorAll('.boton').forEach(b=>{
+    b.classList.remove("oculto");
+  });
+}
+
+function ocultarTodo(){
+  document.querySelectorAll("img").forEach(img=>{
+    img.classList.remove("activo");
+  });
+}
+
+/* idioma */
+function cambiarIdioma(idioma){
+
+  if(idioma=="es"){
+    document.getElementById("entradas").src="entradas.png";
+    document.getElementById("hamburguesas").src="hamburguesas.png";
+    document.getElementById("platos").src="platosfuertes.png";
+    document.getElementById("bebidas").src="cocteles.png";
+  }
+
+  if(idioma=="en"){
+    document.getElementById("entradas").src="starters.png";
+    document.getElementById("hamburguesas").src="burgers.png";
+    document.getElementById("platos").src="mainplates.png";
+    document.getElementById("bebidas").src="drinks.png";
+  }
+}
+
+</script>
+
+</body>
+</html>
