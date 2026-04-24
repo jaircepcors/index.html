@@ -8,9 +8,8 @@
 <style>
 body{
     margin:0;
-    font-family: Arial, sans-serif;
     background:black;
-    color:white;
+    font-family: Arial;
     text-align:center;
 }
 
@@ -27,13 +26,59 @@ img{
     max-width:500px;
 }
 
-.botones{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    padding:20px;
+/* 🔥 imágenes como botones */
+.boton-img{
+    margin:10px auto;
+    cursor:pointer;
+    border-radius:10px;
+    overflow:hidden;
 }
+</style>
+</head>
 
-button{
-    padding:15px;
-    font
+<body>
+
+<!-- PORTADA (cada imagen es botón) -->
+<div id="inicio" class="pantalla activa">
+
+    <div class="boton-img" onclick="mostrar('entradas')">
+        <img src="entradas.png">
+    </div>
+
+    <div class="boton-img" onclick="mostrar('hamburguesas')">
+        <img src="hamburguesas.png">
+    </div>
+
+    <div class="boton-img" onclick="mostrar('platos')">
+        <img src="platosfuertes.png">
+    </div>
+
+    <div class="boton-img" onclick="mostrar('bebidas')">
+        <img src="cerveza.png">
+    </div>
+
+</div>
+
+<!-- ENTRADAS -->
+<div id="entradas" class="pantalla">
+    <img src="entradas.png">
+    <br><br>
+    <button onclick="volver()">⬅ Volver</button>
+</div>
+
+<!-- HAMBURGUESAS -->
+<div id="hamburguesas" class="pantalla">
+    <img src="hamburguesas.png">
+    <br><br>
+    <button onclick="volver()">⬅ Volver</button>
+</div>
+
+<!-- PLATOS -->
+<div id="platos" class="pantalla">
+    <img src="platosfuertes.png">
+    <br><br>
+    <button onclick="volver()">⬅ Volver</button>
+</div>
+
+<!-- BEBIDAS (aquí están TODAS las opciones completas) -->
+<div id="beb
