@@ -1,102 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Birra Menu</title>
+<title>La Birra Menú</title>
+
 <style>
-body {font-family: Arial; background:#0b0b0b; color:#fff; text-align:center;}
-.container {padding:20px;}
-.button {display:block; margin:10px auto; padding:15px; width:80%; max-width:300px; border:2px solid orange; border-radius:10px; color:white; text-decoration:none;}
-img {width:90%; max-width:500px; margin-top:20px; border-radius:10px;}
-.hidden {display:none;}
-.lang {position:fixed; top:10px; right:10px;}
-.lang button {margin:5px; padding:8px;}
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+img {
+    width: 100%;
+    display: none;
+}
+
+img.active {
+    display: block;
+}
+
+.menu-buttons {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #111;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+button {
+    background: #ff6600;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
 </style>
 </head>
+
 <body>
 
-<div class="lang">
-<button onclick="setLang('en')">EN</button>
-<button onclick="setLang('es')">ES</button>
+<div class="container">
+
+<!-- PORTADA -->
+<img src="archivo_00000000f2dc720ea531e99f24ef414e.png" class="active" id="inicio">
+
+<!-- STARTERS -->
+<img src="archivo_00000000e43871f5bae67e7b4bee94e3.png" id="starters">
+
+<!-- BURGERS -->
+<img src="archivo_00000000d61471f58028f14032487304.png" id="burgers">
+
+<!-- MAIN PLATES -->
+<img src="archivo_00000000163871f594cbe4cf8406fb85.png" id="main">
+
+<!-- DRINKS -->
+<img src="archivo_00000000a6bc71fd9630478f189a23e3.png" id="drinks1">
+<img src="archivo_00000000884071fd93822d86a4ce08aa.png" id="drinks2">
+<img src="archivo_00000000811871f59bf4ea27e51531ac.png" id="drinks3">
+<img src="archivo_0000000037b471fd9385885f84325d6c.png" id="drinks4">
+<img src="archivo_000000001b0471f8bb5c0527e28b86da.png" id="drinks5">
+
 </div>
 
-<div class="container" id="home">
-<h1>LA BIRRA MENU</h1>
-<a class="button" onclick="show('starters')" data-en="STARTERS" data-es="ENTRADAS">STARTERS</a>
-<a class="button" onclick="show('burgers')" data-en="BURGERS" data-es="HAMBURGUESAS">BURGERS</a>
-<a class="button" onclick="show('main')" data-en="MAIN PLATES" data-es="PLATOS FUERTES">MAIN PLATES</a>
-<a class="button" onclick="show('drinks')" data-en="DRINKS" data-es="BEBIDAS">DRINKS</a>
-</div>
-
-<div class="container hidden" id="starters">
-<h2 data-en="STARTERS" data-es="ENTRADAS">STARTERS</h2>
-<img src="starters.jpg">
-<a class="button" onclick="back()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="burgers">
-<h2 data-en="BURGERS" data-es="HAMBURGUESAS">BURGERS</h2>
-<img src="burgers.jpg">
-<a class="button" onclick="back()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="main">
-<h2 data-en="MAIN PLATES" data-es="PLATOS FUERTES">MAIN PLATES</h2>
-<img src="main.jpg">
-<a class="button" onclick="back()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="drinks">
-<h2 data-en="DRINKS" data-es="BEBIDAS">DRINKS</h2>
-<a class="button" onclick="show('beers')" data-en="BEERS" data-es="CERVEZAS">BEERS</a>
-<a class="button" onclick="show('cocktails')" data-en="COCKTAILS" data-es="CÓCTELES">COCKTAILS</a>
-<a class="button" onclick="show('soft')" data-en="SOFT DRINKS" data-es="BEBIDAS SIN ALCOHOL">SOFT DRINKS</a>
-<a class="button" onclick="show('happy')" data-en="HAPPY HOURS" data-es="HAPPY HOUR">HAPPY HOURS</a>
-<a class="button" onclick="back()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="beers">
-<h2 data-en="BEERS" data-es="CERVEZAS">BEERS</h2>
-<img src="beers.jpg">
-<a class="button" onclick="backToDrinks()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="cocktails">
-<h2 data-en="COCKTAILS" data-es="CÓCTELES">COCKTAILS</h2>
-<img src="cocktails.jpg">
-<a class="button" onclick="backToDrinks()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="soft">
-<h2 data-en="SOFT DRINKS" data-es="BEBIDAS SIN ALCOHOL">SOFT DRINKS</h2>
-<img src="soft.jpg">
-<a class="button" onclick="backToDrinks()" data-en="BACK" data-es="VOLVER">BACK</a>
-</div>
-
-<div class="container hidden" id="happy">
-<h2 data-en="HAPPY HOURS" data-es="HAPPY HOUR">HAPPY HOURS</h2>
-<img src="happy.jpg">
-<a class="button" onclick="backToDrinks()" data-en="BACK" data-es="VOLVER">BACK</a>
+<!-- BOTONES -->
+<div class="menu-buttons">
+    <button onclick="mostrar('inicio')">Inicio</button>
+    <button onclick="mostrar('starters')">Entradas</button>
+    <button onclick="mostrar('burgers')">Burgers</button>
+    <button onclick="mostrar('main')">Platos</button>
+    <button onclick="mostrar('drinks1')">Bebidas</button>
 </div>
 
 <script>
-let currentLang = 'en';
+function mostrar(id) {
+    let imgs = document.querySelectorAll("img");
+    imgs.forEach(img => img.classList.remove("active"));
 
-function setLang(lang){
- currentLang = lang;
- document.querySelectorAll('[data-en]').forEach(el=>{
-   el.textContent = el.getAttribute('data-' + lang);
- });
+    document.getElementById(id).classList.add("active");
 }
-
-function show(id){
- document.querySelectorAll('.container').forEach(e=>e.classList.add('hidden'));
- document.getElementById(id).classList.remove('hidden');
-}
-
-function back(){ show('home'); }
-function backToDrinks(){ show('drinks'); }
 </script>
 
 </body>
