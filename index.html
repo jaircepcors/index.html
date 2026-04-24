@@ -3,92 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Birra Menú</title>
+<title>La Birra - Menú</title>
 
 <style>
 body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
+  margin: 0;
+  background: black;
+  font-family: Arial, sans-serif;
 }
 
-.container {
-    max-width: 500px;
-    margin: auto;
+.pantalla {
+  display: none;
+}
+
+.activa {
+  display: block;
 }
 
 img {
-    width: 100%;
-    display: none;
+  width: 100%;
+  height: auto;
 }
 
-img.active {
-    display: block;
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
 }
 
-.menu-buttons {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #111;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-button {
-    background: #ff6600;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 12px;
+.menu button {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="container">
-
 <!-- PORTADA -->
-<img src="archivo_00000000f2dc720ea531e99f24ef414e.png" class="active" id="inicio">
-
-<!-- STARTERS -->
-<img src="archivo_00000000e43871f5bae67e7b4bee94e3.png" id="starters">
-
-<!-- BURGERS -->
-<img src="archivo_00000000d61471f58028f14032487304.png" id="burgers">
-
-<!-- MAIN PLATES -->
-<img src="archivo_00000000163871f594cbe4cf8406fb85.png" id="main">
-
-<!-- DRINKS -->
-<img src="archivo_00000000a6bc71fd9630478f189a23e3.png" id="drinks1">
-<img src="archivo_00000000884071fd93822d86a4ce08aa.png" id="drinks2">
-<img src="archivo_00000000811871f59bf4ea27e51531ac.png" id="drinks3">
-<img src="archivo_0000000037b471fd9385885f84325d6c.png" id="drinks4">
-<img src="archivo_000000001b0471f8bb5c0527e28b86da.png" id="drinks5">
-
+<div id="inicio" class="pantalla activa">
+  <img src="portada.png">
 </div>
 
-<!-- BOTONES -->
-<div class="menu-buttons">
-    <button onclick="mostrar('inicio')">Inicio</button>
-    <button onclick="mostrar('starters')">Entradas</button>
-    <button onclick="mostrar('burgers')">Burgers</button>
-    <button onclick="mostrar('main')">Platos</button>
-    <button onclick="mostrar('drinks1')">Bebidas</button>
+<!-- ENTRADAS -->
+<div id="entradas" class="pantalla">
+  <img src="entradas.png">
+</div>
+
+<!-- HAMBURGUESAS -->
+<div id="burgers" class="pantalla">
+  <img src="hamburguesas.png">
+</div>
+
+<!-- PLATOS -->
+<div id="platos" class="pantalla">
+  <img src="platos fuertes.png">
+</div>
+
+<!-- CERVEZAS -->
+<div id="cervezas" class="pantalla">
+  <img src="cerveza.png">
+</div>
+
+<!-- CÓCTELES -->
+<div id="cocteles" class="pantalla">
+  <img src="cócteles.png">
+</div>
+
+<!-- IMPORTADOS -->
+<div id="importados" class="pantalla">
+  <img src="importados.png">
+</div>
+
+<!-- SOFT DRINKS -->
+<div id="soft" class="pantalla">
+  <img src="bebidas soft.png">
+</div>
+
+<!-- HAPPY HOURS -->
+<div id="happy" class="pantalla">
+  <img src="happy hours.png">
+</div>
+
+<!-- MENÚ FIJO -->
+<div class="menu">
+  <button onclick="mostrar('inicio')">Inicio</button>
+  <button onclick="mostrar('entradas')">Entradas</button>
+  <button onclick="mostrar('burgers')">Burgers</button>
+  <button onclick="mostrar('platos')">Platos</button>
+  <button onclick="mostrar('cervezas')">Cervezas</button>
 </div>
 
 <script>
 function mostrar(id) {
-    let imgs = document.querySelectorAll("img");
-    imgs.forEach(img => img.classList.remove("active"));
+  let pantallas = document.querySelectorAll('.pantalla');
+  pantallas.forEach(p => p.classList.remove('activa'));
 
-    document.getElementById(id).classList.add("active");
+  document.getElementById(id).classList.add('activa');
 }
 </script>
 
