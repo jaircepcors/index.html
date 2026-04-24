@@ -13,6 +13,7 @@ body{
 
 .seccion{
   display:none;
+  position:relative;
 }
 
 .activa{
@@ -24,9 +25,18 @@ img{
   max-width:500px;
 }
 
-/* zonas clickeables invisibles */
+/* botones invisibles */
 .boton{
   position:absolute;
+  left:0;
+  width:100%;
+  height:70px;
+}
+
+/* botón volver */
+.volver{
+  position:absolute;
+  top:0;
   left:0;
   width:100%;
   height:80px;
@@ -39,47 +49,50 @@ img{
 <!-- PORTADA -->
 <div id="inicio" class="seccion activa">
   <img src="portada.png">
-  <div class="boton" style="top:300px;" onclick="ir('entradas')"></div>
-  <div class="boton" style="top:400px;" onclick="ir('hamburguesas')"></div>
-  <div class="boton" style="top:500px;" onclick="ir('platos')"></div>
-  <div class="boton" style="top:600px;" onclick="ir('bebidas')"></div>
+
+  <div class="boton" style="top:280px;" onclick="ir('entradas')"></div>
+  <div class="boton" style="top:360px;" onclick="ir('hamburguesas')"></div>
+  <div class="boton" style="top:440px;" onclick="ir('platos')"></div>
+  <div class="boton" style="top:520px;" onclick="ir('bebidas')"></div>
 </div>
 
 <!-- ENTRADAS -->
 <div id="entradas" class="seccion">
   <img src="entradas.png">
-  <div class="boton" style="top:50px;" onclick="ir('inicio')"></div>
+  <div class="volver" onclick="ir('inicio')"></div>
 </div>
 
-<!-- BURGERS -->
+<!-- HAMBURGUESAS -->
 <div id="hamburguesas" class="seccion">
   <img src="hamburguesas.png">
-  <div class="boton" style="top:50px;" onclick="ir('inicio')"></div>
+  <div class="volver" onclick="ir('inicio')"></div>
 </div>
 
 <!-- PLATOS -->
 <div id="platos" class="seccion">
   <img src="platosfuertes.png">
-  <div class="boton" style="top:50px;" onclick="ir('inicio')"></div>
+  <div class="volver" onclick="ir('inicio')"></div>
 </div>
 
 <!-- BEBIDAS -->
 <div id="bebidas" class="seccion">
   <img src="cócteles.png">
-  <div class="boton" style="top:50px;" onclick="ir('inicio')"></div>
+
+  <!-- volver -->
+  <div class="volver" onclick="ir('inicio')"></div>
 
   <!-- subcategorías -->
-  <div class="boton" style="top:250px;" onclick="mostrarBebida('cerveza')"></div>
-  <div class="boton" style="top:300px;" onclick="mostrarBebida('cocteles')"></div>
-  <div class="boton" style="top:350px;" onclick="mostrarBebida('importados')"></div>
-  <div class="boton" style="top:400px;" onclick="mostrarBebida('bebidassoft')"></div>
-  <div class="boton" style="top:450px;" onclick="mostrarBebida('happyhours')"></div>
+  <div class="boton" style="top:260px;" onclick="mostrarBebida('cerveza')"></div>
+  <div class="boton" style="top:320px;" onclick="mostrarBebida('cocteles')"></div>
+  <div class="boton" style="top:380px;" onclick="mostrarBebida('importados')"></div>
+  <div class="boton" style="top:440px;" onclick="mostrarBebida('bebidassoft')"></div>
+  <div class="boton" style="top:500px;" onclick="mostrarBebida('happyhours')"></div>
 </div>
 
-<!-- IMAGEN DINÁMICA BEBIDAS -->
+<!-- SUB BEBIDAS -->
 <div id="subbebida" class="seccion">
   <img id="imgBebida">
-  <div class="boton" style="top:50px;" onclick="ir('bebidas')"></div>
+  <div class="volver" onclick="ir('bebidas')"></div>
 </div>
 
 <script>
@@ -101,5 +114,4 @@ function mostrarBebida(tipo){
 }
 </script>
 
-</body>
-</html>
+</body
