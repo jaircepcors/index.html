@@ -13,51 +13,60 @@ body{
 }
 
 .container{
-  position:relative;
   width:100%;
-  max-width:400px; /* tamaño tipo celular */
+  max-width:400px;
+  position:relative;
 }
 
 img{
   width:100%;
+  display:none;
+}
+
+.activo{
   display:block;
 }
 
-/* BOTONES ENCIMA DE LA IMAGEN */
+/* botones invisibles */
 .boton{
   position:absolute;
   width:45%;
   height:18%;
 }
 
-/* posiciones exactas */
-#btn1{ top:38%; left:5%; }
-#btn2{ top:38%; right:5%; }
-#btn3{ top:60%; left:5%; }
-#btn4{ top:60%; right:5%; }
+/* portada */
+#e{ top:38%; left:5%; }
+#h{ top:38%; right:5%; }
+#p{ top:60%; left:5%; }
+#b{ top:60%; right:5%; }
 
+/* botón volver */
+.volver{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:orange;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+/* idioma */
+.idioma{
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+
+.idioma button{
+  margin-left:5px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <img src="portada.png">
 
-  <div id="btn1" class="boton" onclick="ir('entradas')"></div>
-  <div id="btn2" class="boton" onclick="ir('hamburguesas')"></div>
-  <div id="btn3" class="boton" onclick="ir('platos')"></div>
-  <div id="btn4" class="boton" onclick="ir('bebidas')"></div>
-</div>
-
-<script>
-function ir(seccion){
-  if(seccion=="entradas") window.location="entradas.png";
-  if(seccion=="hamburguesas") window.location="hamburguesas.png";
-  if(seccion=="platos") window.location="platosfuertes.png";
-  if(seccion=="bebidas") window.location="cócteles.png";
-}
-</script>
-
-</body>
-</html>
+  <!-- BOTONES -->
+  <
